@@ -16,5 +16,11 @@
 ==Wish List==
   * Allow the user to map other keys
 
-==Project Status==
-This application is fresh out of the oven, so buyer beware, but I've been running it for a while without any issues.
+==License==
+Licensed under a liberal [http://en.wikipedia.org/wiki/MIT_License MIT/X11 License], which allows this program and source code to be used in both commercial and non-commercial applications
+
+==Requirements==
+  * A PC running Windows (XP or newer)
+  * Microsoft .NET Framework 4.0 or newer
+  * 32 and 64 bit operating systems are supported
+  * Pandora One
