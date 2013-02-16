@@ -1,4 +1,5 @@
 #summary Introducing pandora-tray
+#labels Phase-Design
 
 =Introduction=
 *PandoraTray* is a simple application that sits in your system tray and allows you to use your keyboards multimedia keys to control playback of Pandora One.
@@ -9,9 +10,9 @@
   * 'Next' --> Skips to the next song
 
 ==To Do List==
-  * Create a basic Windows installer
-  * Double-click the tray icon to either launch Pandora One, or bring it to the foreground if it's already active.
-  * Add the ability to detect if the PandoraTray application is already running, and not launch a second instance.
+  * ~~Create a basic Windows installer~~ (DONE!)
+  * ~~Double-click the tray icon to either launch Pandora One, or bring it to the foreground if it's already active.~~ (DONE!)
+  * ~~Add the ability to detect if the PandoraTray application is already running, and not launch a second instance.~~ (DONE!)
 
 ==Wish List==
   * Allow the user to map other keys
