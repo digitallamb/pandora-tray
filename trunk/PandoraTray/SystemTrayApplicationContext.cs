@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using PandoraOneMediaKeys;
 using System.Drawing;
+using System.IO;
 
 namespace PandoraTray
 {
@@ -97,12 +98,36 @@ namespace PandoraTray
             // Attempt to launch PandoraOne if it's not already running, otherwise show it
             if (!PandoraProcess.IsRunning())
             {
-                // TODO: Go forth and find PandoraOne and launch it
+                LaunchPandora();
             }
             else
             {
-
+                PandoraProcess.RestoreWindow();
             }
+        }
+
+        /// <summary>
+        /// Launches the Pandora application
+        /// </summary>
+        private void LaunchPandora()
+        {
+            string pandoraLocation = string.Format("{0}\\Pandora\\Pandora.exe", ProgramFilesx86());
+            if (File.Exists(pandoraLocation))
+                System.Diagnostics.Process.Start(pandoraLocation);
+        }
+
+        /// <summary>
+        /// Programs the filesx86.
+        /// </summary>
+        /// <returns></returns>
+        private static string ProgramFilesx86()
+        {
+            int magic64bitDetector = 8;
+
+            if (IntPtr.Size == magic64bitDetector || (!String.IsNullOrEmpty(Environment.GetEnvironmentVariable("PROCESSOR_ARCHITEW6432"))))
+                return Environment.GetEnvironmentVariable("ProgramFiles(x86)");
+            else
+                return Environment.GetEnvironmentVariable("ProgramFiles");
         }
 
         /// <summary>
@@ -129,7 +154,7 @@ namespace PandoraTray
         /// </summary>
         protected override void ExitThreadCore()
         {
-            _NotifyIcon.Visible = false; // should remove lingering tray icon!
+            _NotifyIcon.Visible = false;
             base.ExitThreadCore();
         }
     }

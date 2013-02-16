@@ -117,7 +117,7 @@ namespace PandoraTray
         /// Gets the pandora pointer
         /// </summary>
         /// <returns></returns>
-        public static IntPtr GetPointer()
+        private static IntPtr GetPointer()
         {
             return FindWindow(PANDORA_CLASS_NAME, PANDORA_WINDOW_NAME);
         }
@@ -125,7 +125,7 @@ namespace PandoraTray
         /// <summary>
         /// Restores the window.
         /// </summary>
-        private static void RestoreWindow()
+        public static void RestoreWindow()
         {
             IntPtr hWnd = GetPointer();
 
