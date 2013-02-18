@@ -30,6 +30,8 @@ namespace PandoraTray
         /// </summary>
         private void BuildContextMenu()
         {
+            _NotifyIcon.ContextMenuStrip.Items.Add(new ToolStripMenuItem("&About", null, aboutItem_Click));
+            _NotifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             _NotifyIcon.ContextMenuStrip.Items.Add(new ToolStripMenuItem("&Exit", null, exitItem_Click));
         }
 
@@ -138,6 +140,17 @@ namespace PandoraTray
         private void exitItem_Click(object sender, EventArgs e)
         {
             ExitThread();
+        }
+
+        /// <summary>
+        /// Handles the Click event of the aboutItem control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void aboutItem_Click(object sender, EventArgs e)
+        {
+            AboutPandoraTray tray = new AboutPandoraTray();
+            tray.ShowDialog();
         }
 
         /// <summary>
